@@ -1,0 +1,22 @@
+package Listas;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestarListaPessoas {
+	
+	public static void main(String[] args) {
+		
+		List<Pessoa> pessoas = new ArrayList<Pessoa>();
+		
+		pessoas.add(new Pessoa("Ze", "1235"));
+		pessoas.add(new Pessoa("Ze", "1235"));
+		pessoas.add(new Pessoa("Ze", "1235"));
+		pessoas.add(new Pessoa("Ze", "1235"));
+		pessoas.add(new Pessoa("Ze", "1235"));
+		
+		System.out.println("pessoas.size" + pessoas.size());
+		System.out.println("pessoas.isEmpty" + pessoas.isEmpty());
+	}
+
+}

@@ -1,0 +1,11 @@
+package Pedagio;
+
+public class CalculadorPedagio {
+	
+	private double preco = 5;
+	
+	public double calculaPreco(PagaPedagio paga){
+		return (this.preco * paga.qtdeEixos());
+	}
+
+}

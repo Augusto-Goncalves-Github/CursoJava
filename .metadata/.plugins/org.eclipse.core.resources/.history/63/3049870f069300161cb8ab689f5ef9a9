@@ -1,0 +1,21 @@
+package Garagem;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Garagem {
+	
+	private List<Veiculo> veiculos = new ArrayList<Veiculo>();
+	
+	public void Adicionar(Veiculo veiculo){
+		veiculos.add(veiculo);
+	}
+
+	public void Listar(Veiculo veiculo){
+		for (Veiculo veiculo1 : veiculos) {
+			System.out.println(veiculo1.getMarca() + " - " + veiculo1.getModelo() + " - " + veiculo1.getPlaca()
+					+ " - " + veiculo1.getAno() + " - " + veiculo1.getPreco());
+		}
+	}
+	
+}

@@ -1,0 +1,26 @@
+package Listas;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestarListaPessoas {
+	
+	public static void main(String[] args) {
+		
+		List<Pessoa> pessoas = new ArrayList<Pessoa>();
+		
+		pessoas.add(new Pessoa("Ze", "1235"));
+		pessoas.add(new Pessoa("Jao", "2343"));
+		pessoas.add(new Pessoa("Tiao", "33333"));
+		pessoas.add(new Pessoa("Ego", "23345"));
+		pessoas.add(new Pessoa("Juca", "5436547"));
+		
+		System.out.println("pessoas.size" + pessoas.size());
+		System.out.println("pessoas.isEmpty" + pessoas.isEmpty());
+		
+		for (Pessoa pessoa : pessoas) {
+			System.out.println(pessoa.getNome() + " " + pessoa.getCpf());
+		}
+	}
+
+}

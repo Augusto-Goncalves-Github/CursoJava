@@ -1,0 +1,16 @@
+package Pedagio;
+
+public class CalculaPedagio {
+	
+	public static void main(String[] args) {
+		
+		Veiculo carro = new Carro();
+		Veiculo caminhao = new Caminhao();
+		Veiculo moto = new Moto();
+		Veiculo bike = new Bicicleta();
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,24 @@
+package Set;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import Listas.Pessoa;
+
+public class TestarSetPessoas {
+	
+	public static void main(String[] args) {
+		Set<Pessoa> pessoas = new HashSet<>();
+		
+		pessoas.add(new Pessoa("Ze", "1235"));
+		pessoas.add(new Pessoa("Jao", "2343"));
+		pessoas.add(new Pessoa("Tiao", "33333"));
+		pessoas.add(new Pessoa("Ego", "23345"));
+		pessoas.add(new Pessoa("Juca", "5436547"));
+		
+		for (Pessoa pessoa : pessoas) {
+			System.out.println(pessoa.getNome() + " - " + pessoa.getCpf());
+		}
+	}
+
+}

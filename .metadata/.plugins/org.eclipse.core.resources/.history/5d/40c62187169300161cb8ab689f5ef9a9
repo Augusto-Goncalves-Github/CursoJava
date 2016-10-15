@@ -1,0 +1,25 @@
+package GerarSenhas;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GeradorSenha {
+	
+	private int contI; // contador senha idoso
+	private int contP; // contador senha padrao
+	List<Integer> senhaIdoso = new ArrayList<>();
+	List<Integer> senhaPadrao = new ArrayList<>();
+	
+	public GeradorSenha(int contI, int contP) {
+		this.contI = contI;
+		this.contP = contP;
+	}
+	
+	public String gerarSenhaIdoso(){
+		contI++;
+		senhaIdoso.add(contI)
+		return "I" + contI ;
+	}
+	
+
+}

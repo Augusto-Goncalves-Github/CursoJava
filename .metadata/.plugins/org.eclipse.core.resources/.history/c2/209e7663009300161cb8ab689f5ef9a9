@@ -1,0 +1,31 @@
+package Garagem;
+
+import java.util.Scanner;
+
+public class TestarGaragem {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Marca do veiculo: ");
+		String marca = sc.nextLine();
+		System.out.println("Modelo do veiculo: ");
+		String modelo = sc.nextLine();
+		System.out.println("Placa: ");
+		String placa = sc.nextLine();
+		System.out.println("Ano: ");
+		int ano = sc.nextInt();
+		System.out.println("Preco: ");
+		double preco = sc.nextDouble();
+		
+		Veiculo veic = new Veiculo(marca, modelo, placa, ano, preco);
+		
+
+		
+		sc.close();	
+		
+		
+	}
+
+}

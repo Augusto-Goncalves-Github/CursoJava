@@ -1,0 +1,11 @@
+package Pedagio;
+
+public class Moto extends Veiculo implements PagaPedagio{
+	
+	private int eixos;
+	
+	public void qtdeEixos(){
+		this.eixos = 1;
+	}
+
+}

@@ -1,0 +1,12 @@
+package Garagem;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Garagem {
+	
+	private List<Veiculo> veiculos = new ArrayList<Veiculo>();
+	
+	
+
+}

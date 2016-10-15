@@ -1,0 +1,14 @@
+package Garagem;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Garagem {
+	
+	private List<Veiculo> veiculos = new ArrayList<Veiculo>();
+	
+	public void Adicionar(){
+		veiculos.add(new Veiculo("Ze", "1235", "sss", 123, 50.00));
+	}
+	
+}

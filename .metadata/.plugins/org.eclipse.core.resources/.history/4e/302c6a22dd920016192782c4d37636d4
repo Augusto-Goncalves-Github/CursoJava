@@ -1,0 +1,19 @@
+package Pedagio;
+
+public class TestaPedagio {
+	
+	public static void main(String[] args) {
+		
+		PagaPedagio carro = new Carro();
+		PagaPedagio caminhao = new Caminhao();
+		PagaPedagio moto = new Moto();
+		Veiculo bike = new Bicicleta();
+		CalculadorPedagio cal = new CalculadorPedagio(7.55); 
+		
+		System.out.println(cal.calculaPreco(caminhao));
+		System.out.println(cal.calculaPreco(carro));
+		System.out.println(cal.calculaPreco(moto));
+		
+	}
+
+}

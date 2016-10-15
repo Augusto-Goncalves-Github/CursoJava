@@ -1,0 +1,22 @@
+package Map;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import Listas.Pessoa;
+
+public class TestarMap {
+	public static void main(String[] args) {
+		Map<String, Pessoa> pessoasPorCpf = new HashMap<>();
+		
+		pessoasPorCpf.put("0", new Pessoa("Juquinha", "0"));
+		pessoasPorCpf.put("1", new Pessoa("Zeca", "1"));
+		pessoasPorCpf.put("2", new Pessoa("Duda", "2"));
+		pessoasPorCpf.put("3", new Pessoa("Jao", "3"));
+		pessoasPorCpf.put("0", new Pessoa("Samuca", "0"));
+		
+		System.out.println("pessoasPorCpf.size: " + pessoasPorCpf.size());
+		System.out.println("pessoasPorCpf.containsKey(10): " + pessoasPorCpf.containsKey(10));
+		System.out.println("pessoasPorCpf.containsKey(10): " + pessoasPorCpf.containsKey(0));
+	}
+}

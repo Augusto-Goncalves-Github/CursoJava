@@ -1,0 +1,28 @@
+package Garagem;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Garagem {
+	
+	private List<Veiculo> veiculos = new ArrayList<Veiculo>();
+	
+	public boolean adicionar(Veiculo veiculo){
+		//veiculos.add(veiculo);
+		return false;
+	}
+	
+	public boolean vender(String placa){
+		return false;
+	}
+	
+	public boolean buscar(String placa){
+		return false;
+	}
+
+	public List<Veiculo> listar(){
+
+		return new ArrayList<>();
+	}
+	
+}

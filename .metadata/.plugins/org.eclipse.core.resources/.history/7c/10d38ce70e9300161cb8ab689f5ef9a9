@@ -1,0 +1,30 @@
+package Garagem;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Garagem {
+	
+	private Set<Veiculo> veiculos = new TreeSet();
+	
+	public boolean adicionar(Veiculo veiculo){
+		return veiculos.add(veiculo);		
+	}
+	
+	public boolean vender(String placa){
+		return veiculos.remove(placa);
+	}
+	
+	public Veiculo buscar(String placa){
+		return false;
+	}
+
+	public List<Veiculo> listar(){
+
+		return new ArrayList<>();
+	}
+	
+}

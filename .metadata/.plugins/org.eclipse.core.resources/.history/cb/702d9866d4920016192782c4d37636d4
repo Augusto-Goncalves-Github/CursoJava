@@ -1,0 +1,7 @@
+package Pedagio;
+
+public interface QtdeEixos {
+	
+	public abstract void qtdeEixos();
+
+}
