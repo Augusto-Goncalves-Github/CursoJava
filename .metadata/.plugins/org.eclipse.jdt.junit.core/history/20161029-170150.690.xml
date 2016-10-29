@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PessoaTest" project="curso-jpa" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.dextraining.pessoa.PessoaTest" time="1.902">
+    <testcase name="buscarPorIdTeste" classname="com.dextraining.pessoa.PessoaTest" time="1.84"/>
+    <testcase name="salvarPessoaTeste" classname="com.dextraining.pessoa.PessoaTest" time="0.062"/>
+  </testsuite>
+</testrun>

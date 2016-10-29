@@ -19,7 +19,7 @@ public class TestarGerarSenha {
 			} else if (opcao == 2) {
 				System.out.println("Senha idoso: " + geradorSenha.gerarSenhaIdoso());
 			} else if (opcao == 3) {
-				geradorSenha.proximaSenha();
+				System.out.println("Proxima senha: " + geradorSenha.proximaSenha());
 			}
 		}
 		

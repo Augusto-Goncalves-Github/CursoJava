@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CalculadoraTest" project="curso-jpa" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="com.dextraining.test.CalculadoraTest" time="0.0">
+    <testcase name="testarMultiplicacao" classname="com.dextraining.test.CalculadoraTest" time="0.0"/>
+    <testcase name="testarDivisao" classname="com.dextraining.test.CalculadoraTest" time="0.0"/>
+    <testcase name="testarSubtracao" classname="com.dextraining.test.CalculadoraTest" time="0.0"/>
+    <testcase name="testarSoma" classname="com.dextraining.test.CalculadoraTest" time="0.0"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,34 @@
+package com.dextraining.banco;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.Test;
+
+public class BancoTest {
+	
+	@Test
+	public void salvarBancoTeste(){
+		
+		Banco bancoBradesco = new Banco();
+		bancoBradesco.setNome("Bradesco");
+		
+		Banco bancoDoBrasil = new Banco();
+		bancoDoBrasil.setNome("Banco do Brasil");
+		
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("CURSO_JPA");
+		EntityManager em = factory.createEntityManager();
+		
+		em.getTransaction().begin();
+		
+		em.persist(bancoBradesco);
+		em.persist(bancoDoBrasil);
+		
+		em.getTransaction().commit();
+		
+		em.close();
+		factory.close();
+	}
+
+}

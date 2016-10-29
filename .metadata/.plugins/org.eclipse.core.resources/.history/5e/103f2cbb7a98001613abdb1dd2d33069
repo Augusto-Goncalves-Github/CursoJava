@@ -1,0 +1,37 @@
+package IO;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class ExemploLeituraArquivo {
+	
+	public static void main(String[] args) throws IOException {		
+		gravarArquivo(); // metodo
+		lerArquivo(); // metodo
+	}
+
+	private static void lerArquivo() throws IOException {
+		try( FileInputStream fileInputStream = new FileInputStream("/home/java01/exemplo.txt")){
+			byte buffer[] = new byte[1024];		
+			int read = fileInputStream.read(buffer);
+			
+			while(read != -1){
+				new String(buffer, 0, read);
+				System.out.println(read);
+				
+			}
+		}		
+	}
+
+	private static void gravarArquivo() throws IOException,
+			FileNotFoundException {
+		String counteudoDoArquivo = "Meu primeiro arquivo em java";
+		
+		try (FileOutputStream out = new FileOutputStream("/home/java01/exemplo.txt")){
+			out.write(counteudoDoArquivo.getBytes());
+		}
+	}
+
+}

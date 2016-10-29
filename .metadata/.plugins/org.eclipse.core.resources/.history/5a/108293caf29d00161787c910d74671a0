@@ -1,0 +1,45 @@
+package com.dextraining.banco;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import com.dextraining.jpa.EntityManagerUtil;
+
+public class BancoTest {
+
+	@Test
+	public void salvarBancoTeste(){
+
+		Banco bancoBradesco = new Banco();
+		bancoBradesco.setNome("Bradesco");
+
+		Banco bancoDoBrasil = new Banco();
+		bancoDoBrasil.setNome("Banco do Brasil");
+
+		EntityManager em = EntityManagerUtil.criarEntityManager();
+
+		try{ // tenta
+			em.getTransaction().begin();
+
+			em.persist(bancoBradesco);
+			em.persist(bancoDoBrasil);
+
+			em.getTransaction().commit();
+
+		} catch (Exception e) { // trata exceção
+			em.getTransaction().rollback();
+			throw new RuntimeException(e);
+		}finally { // fechar ao finalizar
+			em.close();
+			factory.close();	
+		}
+		
+		Assert.assertNotNull("Id do banco não pode ser null", bancoBradesco.getId());
+		Assert.assertNotNull("Id do banco não pode ser null", bancoDoBrasil.getId());
+	}
+
+}

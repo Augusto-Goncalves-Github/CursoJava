@@ -7,12 +7,17 @@ public class GeradorSenha {
 	
 	private int contI; // contador senha idoso
 	private int contP; // contador senha padrao
-	List<Integer> senhaIdoso = new ArrayList<>();
-	List<Integer> senhaPadrao = new ArrayList<>();
+	
+	private List<Integer> senhaIdoso;
+	private List<Integer> senhaPadrao;
+	
+	private int proximaSenhaPadrao;
+	private int proximaSenhaIdoso;
 	
 	public GeradorSenha() {
-		this.contI = 0;
-		this.contP = 0;
+		this.senhaIdoso = new ArrayList<>();
+		this.senhaPadrao = new ArrayList<>();
+//		this.proximaSenhaIdoso() = this.proximaSenhaIdoso;
 	}
 	
 	public String gerarSenhaIdoso(){
@@ -28,6 +33,13 @@ public class GeradorSenha {
 	}
 	
 	public String proximaSenha(){
+		
+		if (!senhaIdoso.isEmpty()) {
+			return "I" + senhaIdoso.remove(0);
+		}
+		if (!senhaPadrao.isEmpty()) {	
+			return "P" + senhaPadrao.remove(0);
+		}		
 		return senhaIdoso.get(0);
 		
 	}

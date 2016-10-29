@@ -1,0 +1,13 @@
+package com.dextraining.banco;
+
+public class BancoService {
+	
+	public void salvar(Banco banco){
+		
+	}
+	
+	public Banco buscarPorId(Long Id){
+		return null;
+	}
+
+}

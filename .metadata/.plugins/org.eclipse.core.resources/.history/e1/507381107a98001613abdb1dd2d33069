@@ -1,0 +1,17 @@
+package IO;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class ExemploLeituraArquivo {
+	
+	public static void main(String[] args) throws IOException {		
+		String counteudoDoArquivo = "Meu primeiro arquivo em java";
+		
+		try (FileOutputStream out = new FileOutputStream("/home/java01/exemplo.txt")){
+			out.write(counteudoDoArquivo.getBytes());
+		};
+	}
+
+}

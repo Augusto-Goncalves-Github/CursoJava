@@ -1,0 +1,64 @@
+package com.dextraining.pessoa;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.Test;
+
+import com.dextraining.banco.Banco;
+import com.dextraining.banco.BancoService;
+import com.dextraining.jpa.EntityManagerUtil;
+
+public class PessoaTest {
+
+	private Pessoa pessoa;
+
+	@AfterClass
+	public static void close(){
+		EntityManagerUtil.fechar();	
+	}
+
+	@Test
+	public void salvarPessoaTeste() throws ParseException{
+		
+		SimpleDateFormat df = new SimpleDateFormat("DD/MM/yyyy");
+		SimpleDateFormat df2 = new SimpleDateFormat("DD/MM/yyyy");
+		Date dataEu = df.parse("07/01/1978");
+		Date dataVoce = df2.parse("12/03/1980");
+
+		PessoaService pessoaService = new PessoaService();
+
+		Pessoa pessoaEu = new Pessoa();
+		pessoaEu.setNome("Augusto");
+		pessoaEu.setDataNascimento(dataEu);
+
+		Pessoa pessoaVoce = new Pessoa();
+		pessoaVoce.setNome("Diego");
+		pessoaEu.setDataNascimento(dataVoce);
+		
+		pessoaService.salvarPessoa(pessoaEu);
+		pessoaService.salvarPessoa(pessoaVoce);
+		
+		Assert.assertNotNull("Id da pessoa não pode ser null", pessoaEu.getId());
+		Assert.assertNotNull("Id da pessoa não pode ser null", pessoaVoce.getId());
+	}
+	
+//	@Test
+	public void buscarPorIdTeste(){
+		PessoaService pessoaService = new PessoaService();
+		Pessoa pessoaEu = new Pessoa();
+		pessoaEu.setNome("Gusto");
+		pessoaService.salvarPessoa(pessoaEu);
+		
+		pessoa = pessoaService.buscarPorId(-1L);
+		Pessoa pessoaEncontrada = pessoaService.buscarPorId(pessoaEu.getId());
+		
+		Assert.assertNull("Id da pessoa pode ser null", pessoa);
+		Assert.assertNotNull("Id do banco não pode ser null", pessoaEncontrada);
+		Assert.assertEquals(pessoaEu.getNome(), pessoaEncontrada.getNome());
+	}
+	
+}

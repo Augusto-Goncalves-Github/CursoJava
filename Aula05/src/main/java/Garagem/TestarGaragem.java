@@ -1,75 +1,66 @@
 package Garagem;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class TestarGaragem {
-	
-	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		Garagem garagem = new Garagem();
-	
-		int opcao = menu(sc);
-		
-		while(opcao != 5){
-			if (opcao == 1){
-				System.out.println("Marca do veiculo: ");
-				String marca = sc.nextLine();
-				System.out.println("Modelo do veiculo: ");
-				String modelo = sc.nextLine();
+	public static void main(String[] args) throws IOException {
+		Scanner scanner = new Scanner(System.in);
+		Garagem garagem = new GaragemComMapa();
+		int opcao = menu(scanner);
+		while (opcao != 5) {
+			if (opcao == 1) {
+				System.out.println("Marca: ");
+				String marca = scanner.nextLine();
+				System.out.println("Modelo: ");
+				String modelo = scanner.nextLine();
 				System.out.println("Placa: ");
-				String placa = sc.nextLine();
+				String placa = scanner.nextLine();
 				System.out.println("Ano: ");
-				int ano = sc.nextInt();
+				int ano = scanner.nextInt();
 				System.out.println("Preco: ");
-				double preco = sc.nextDouble();
-				
-				Veiculo veic = new Veiculo(marca, modelo, placa, ano, preco);					
-				
-				boolean inseriu = garagem.adicionar(null);
-				if (!inseriu){
-					System.out.println("Placa duplicada. Veiculo nao adicionado");
+				double preco = scanner.nextDouble();
+				Veiculo veiculo = new Veiculo(marca, modelo, placa, ano, preco);
+				boolean inseriu = garagem.adicionar(veiculo);
+				if (!inseriu) {
+					System.out.println("Placa duplicada. Veiculo nao adicionado!");
 				}
-			} else if (opcao == 2){
+			} else if (opcao == 2) {
 				System.out.println("Placa: ");
-				String placa = sc.nextLine();
+				String placa = scanner.nextLine();
 				boolean vendeu = garagem.vender(placa);
-				if (!vendeu){
-					System.out.println("Placa nao encontrada");
-				}				
-			} else if (opcao == 3){
+				if (!vendeu) {
+					System.out.println("Placa nao encontrada!");
+				}
+			} else if (opcao == 3) {
 				System.out.println("Placa: ");
-				String placa = sc.nextLine();
+				String placa = scanner.nextLine();
 				Veiculo veiculo = garagem.buscar(placa);
 				if (veiculo != null) {
 					System.out.println(veiculo);
 				} else {
-					System.out.println("Veiculo nao encontrado.");
+					System.out.println("Veiculo nao encontrado!");
 				}
 			} else if (opcao == 4) {
-				System.out.println("Veiculo encontrados: ");
-				List<Veiculo> veiculos = garagem.listar();
-				for (Veiculo veiculo : veiculos) {
+				System.out.println("Veiculos encontrados: ");
+				for (Veiculo veiculo : garagem.listar()) {
 					System.out.println(veiculo);
 				}
 			} else {
 			}
-		} opcao = menu(sc);
-		
-		sc.close();			
+			opcao = menu(scanner);
+		}
+		scanner.close();
 	}
-
-	private static int menu(Scanner sc) {
-		System.out.println("1 - Adicionar");
-		System.out.println("2 - Vender (por placa)");
-		System.out.println("3 - Buscar (por placa)");
-		System.out.println("4 - Listar");
-		System.out.println("5 - Sair");
-		
-		int opcao = sc.nextInt();
-		sc.nextLine();
+	private static int menu(Scanner scanner) throws IOException {
+		System.out.println("1. Adicionar");
+		System.out.println("2. Vender (por placa)");
+		System.out.println("3. Buscar (por placa)");
+		System.out.println("4. Listar");
+		System.out.println("5. Sair");
+		int opcao = scanner.nextInt();
+		scanner.nextLine();
 		return opcao;
 	}
-
 }

@@ -1,0 +1,26 @@
+package com.dextraining.banco;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class BancoTest {
+
+	@Test
+	public void salvarBancoTeste(){
+		
+		BancoService bancoService = new BancoService();
+
+		Banco bancoBradesco = new Banco();
+		bancoBradesco.setNome("Bradesco");
+
+		Banco bancoDoBrasil = new Banco();
+		bancoDoBrasil.setNome("Banco do Brasil");
+
+		bancoService.salvar(bancoDoBrasil);
+		bancoService.salvar(bancoBradesco);
+		
+		Assert.assertNotNull("Id do banco não pode ser null", bancoBradesco.getId());
+		Assert.assertNotNull("Id do banco não pode ser null", bancoDoBrasil.getId());
+	}
+
+}

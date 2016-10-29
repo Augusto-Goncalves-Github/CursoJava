@@ -1,0 +1,28 @@
+package com.dextraining.banco;
+
+import javax.persistence.EntityManager;
+
+import com.dextraining.jpa.EntityManagerUtil;
+
+public class BancoService {
+
+	public void salvar(Banco banco){
+
+		EntityManager em = EntityManagerUtil.criarEntityManager();
+		try{ // tenta
+			em.getTransaction().begin();
+			em.persist(banco);
+			em.getTransaction().commit();
+		} catch (Exception e) { // trata exceção
+			em.getTransaction().rollback();
+			throw new RuntimeException(e);
+		}finally { // fecha ao finalizar
+			em.close();
+		}
+	}
+
+	public Banco buscarPorId(Long Id){
+		return null;
+	}
+
+}

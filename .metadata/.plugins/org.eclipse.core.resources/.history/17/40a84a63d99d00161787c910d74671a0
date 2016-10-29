@@ -1,0 +1,28 @@
+package com.dextraining.test;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class CalculadoraTest {
+	
+	@Test
+	public void testarSoma(){
+		int valor = 5+5;
+		Assert.assertEquals(10, valor);
+	}
+	
+	@Test
+	public void testarSubtracao(){
+		
+	}
+
+	@Test
+	public void testarMultiplicacao(){
+		
+	}
+	
+	@Test
+	public void testarDivisao(){
+		
+	}
+}

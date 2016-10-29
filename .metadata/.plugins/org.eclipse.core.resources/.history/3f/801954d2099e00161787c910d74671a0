@@ -1,0 +1,15 @@
+package com.dextraining.pessoa;
+
+import javax.persistence.EntityManager;
+
+import com.dextraining.jpa.EntityManagerUtil;
+import com.dextraining.service.GenericService;
+
+public class PessoaService extends GenericService<Pessoa>{
+
+	public PessoaService() {
+		super(Pessoa.class);
+	}
+	
+	
+}

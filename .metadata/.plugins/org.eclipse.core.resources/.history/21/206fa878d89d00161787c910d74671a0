@@ -1,0 +1,26 @@
+package com.dextraining.test;
+
+import org.junit.Test;
+
+public class DummyTest {
+	
+	@Test
+	public void testarSoma(){
+		
+	}
+	
+	@Test
+	public void testarSubtracao(){
+		
+	}
+
+	@Test
+	public void testarMultiplicacao(){
+		
+	}
+	
+	@Test
+	public void testarDivisao(){
+		
+	}
+}

@@ -1,0 +1,42 @@
+package Garagem;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+
+import javax.management.RuntimeErrorException;
+
+public class GaragemComArquivo implements Garagem {
+	
+	private static final String ARQUIVO = "/home/java01/veiculos.csv";
+
+	
+	@Override
+	public boolean adicionar(Veiculo veiculo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean vender(String placa) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Veiculo buscar(String placa) {
+		try(BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO))){
+		} catch(IOException e){
+			throw new RuntimeException(e);
+		}
+		return null;
+	}
+
+	@Override
+	public List<Veiculo> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
