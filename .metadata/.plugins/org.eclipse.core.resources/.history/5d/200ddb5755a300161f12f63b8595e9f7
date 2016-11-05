@@ -1,0 +1,14 @@
+package com.dextraining.investimento;
+
+import org.junit.After;
+
+import com.dextraining.jpa.EntityManagerUtil;
+
+public class InvestimentoServiceTest {
+	
+	@After
+	public void close(){
+		EntityManagerUtil.fechar();	
+	}
+
+}

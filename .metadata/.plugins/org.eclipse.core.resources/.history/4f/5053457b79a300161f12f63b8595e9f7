@@ -1,0 +1,5 @@
+package com.dextraining.garagem.dominio;
+
+public class EntityManagerUtil {
+
+}

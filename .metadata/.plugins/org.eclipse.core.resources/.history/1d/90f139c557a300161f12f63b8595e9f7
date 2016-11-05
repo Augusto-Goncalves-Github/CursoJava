@@ -1,0 +1,5 @@
+package com.dextraining.exception;
+
+public class ValidacaoException {
+
+}

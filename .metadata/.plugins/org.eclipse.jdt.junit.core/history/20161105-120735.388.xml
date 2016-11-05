@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="InvestimentoServiceTest" project="curso-jpa" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="com.dextraining.investimento.InvestimentoServiceTest" time="2.817">
+    <testcase name="salvarInvestimentoTesteComErro" classname="com.dextraining.investimento.InvestimentoServiceTest" time="0.0"/>
+    <testcase name="salvarInvestimentoTeste" classname="com.dextraining.investimento.InvestimentoServiceTest" time="1.859"/>
+    <testcase name="buscarTodosMaiorMil" classname="com.dextraining.investimento.InvestimentoServiceTest" time="0.538"/>
+    <testcase name="ordenarValorTeste" classname="com.dextraining.investimento.InvestimentoServiceTest" time="0.419"/>
+  </testsuite>
+</testrun>

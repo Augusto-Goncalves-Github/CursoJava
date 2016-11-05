@@ -1,0 +1,76 @@
+package com.dextraining.investimento;
+
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Test;
+
+import com.dextraining.exception.ValidacaoException;
+import com.dextraining.jpa.EntityManagerUtil;
+
+public class InvestimentoServiceTest {
+	
+	@After
+	public void close(){
+		EntityManagerUtil.fechar();	
+	}
+	
+	@Test
+	public void salvarInvestimentoTeste(){
+		
+		InvestimentoService investimentoService = new InvestimentoService();
+
+		Investimento investService = new Investimento();
+		investService.setDescricao("Tesouro Nacional");
+		investService.setValor(15000.00);
+		investService.setRendimentoMensal(0.5);
+		
+		Investimento investService2 = new Investimento();
+		investService2.setDescricao("Selic");
+		investService2.setValor(20000.00);
+		investService2.setRendimentoMensal(0.3);
+
+		investimentoService.salvar(investService);
+		investimentoService.salvar(investService2);
+		
+		Assert.assertNotNull("Id do investimento não pode ser null", investService.getId());
+	}
+	
+	@Test(expected = ValidacaoException.class)
+	public void salvarInvestimentoTesteComErro(){
+		
+		InvestimentoService investimentoService = new InvestimentoService();
+
+		Investimento investService = new Investimento();
+		investService.setDescricao("Tesouro Nacional");
+		investService.setValor(15000.00);
+
+		investimentoService.salvar(investService);
+	}
+	
+	@Test
+	public void ordenarValorTeste(){
+		InvestimentoService investimentoService = new InvestimentoService();
+
+		Investimento investService = new Investimento();
+		investService.setDescricao("Tesouro Nacional");
+		investService.setValor(15000.00);
+		investService.setRendimentoMensal(0.5);
+		
+		Investimento investService2 = new Investimento();
+		investService2.setDescricao("Selic");
+		investService2.setValor(20000.00);
+		investService2.setRendimentoMensal(0.3);
+
+		investimentoService.salvar(investService);
+		investimentoService.salvar(investService2);
+		
+		List<Investimento> invest = investimentoService.buscarTodosDesc();
+		
+		Assert.assertEquals(2, invest.size()); // garantir que veio a qtde de registros inseridos
+		Assert.assertEquals(investService2.getId(), invest.get(0).getId());
+		Assert.assertEquals(investService.getId(), invest.get(1).getId());
+	}	
+
+}

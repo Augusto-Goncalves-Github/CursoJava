@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="GaragemJPATest" project="garagem-jpa" tests="7" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="com.dextraining.garagem.dominio.GaragemJPATest" time="4.241">
+    <testcase name="adicionarVeiculoTest" classname="com.dextraining.garagem.dominio.GaragemJPATest" time="2.191"/>
+    <testcase name="listarVeiculosSemveiculosTeste" classname="com.dextraining.garagem.dominio.GaragemJPATest" time="0.33"/>
+    <testcase name="buscarVeiculoTest" classname="com.dextraining.garagem.dominio.GaragemJPATest" time="0.401"/>
+    <testcase name="venderVeiculoInexistenteTeste" classname="com.dextraining.garagem.dominio.GaragemJPATest" time="0.253"/>
+    <testcase name="venderVeiculoTeste" classname="com.dextraining.garagem.dominio.GaragemJPATest" time="0.323"/>
+    <testcase name="adicionarVeiculoDuplicadoTest" classname="com.dextraining.garagem.dominio.GaragemJPATest" time="0.297"/>
+    <testcase name="listarVeiculosTeste" classname="com.dextraining.garagem.dominio.GaragemJPATest" time="0.446"/>
+  </testsuite>
+</testrun>

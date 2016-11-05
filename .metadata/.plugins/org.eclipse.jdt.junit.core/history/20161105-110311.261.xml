@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="InvestimentoServiceTest" project="curso-jpa" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.dextraining.investimento.InvestimentoServiceTest" time="1.994">
+    <testcase name="salvarInvestimentoTesteComErro" classname="com.dextraining.investimento.InvestimentoServiceTest" time="0.0"/>
+    <testcase name="salvarInvestimentoTeste" classname="com.dextraining.investimento.InvestimentoServiceTest" time="1.994"/>
+  </testsuite>
+</testrun>

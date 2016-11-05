@@ -1,0 +1,109 @@
+package com.dextraining.garagem.dominio;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+
+import com.dexraining.garagem.jpa.EntityManagerUtil;
+import com.dextraining.garagem.dominio.veiculo.Veiculo;
+import com.dextraining.garagem.exception.VeiculoDuplicadoException;
+import com.dextraining.garagem.exception.VeiculoNaoEncontradoException;
+
+public class GaragemJPA implements Garagem {
+
+	private void salvar(Veiculo entidade){
+		EntityManager em = EntityManagerUtil.criarEntityManager();
+
+		try{
+			em.getTransaction().begin();
+			em.persist(entidade);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+			throw e;
+		}finally { 
+			em.close();
+		}		
+	}
+
+	private void deletar(Veiculo entidade){
+		EntityManager em = EntityManagerUtil.criarEntityManager();
+
+		try{
+			em.getTransaction().begin();
+			em.remove(em.merge(entidade));
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+			throw e;
+		}finally { 
+			em.close();
+		}		
+	}
+
+	@Override
+	public void adicionar(Veiculo veiculo) {
+		// TODO Salvar novo veiculo no banco de dados
+		// TODO IMPORTANTE: Validar duplicidade da placa do veiculo
+
+		if (buscar(veiculo.getPlaca()) == null) {
+			salvar(veiculo);
+		} else {
+			throw new VeiculoDuplicadoException();
+		}		
+	}	
+
+	@Override
+	public void vender(String placa) {
+		// TODO Implementar venda de veiculo por placa
+
+		Veiculo veic = buscar(placa);
+		if (veic != null) {
+			deletar(veic);
+		} else{
+			throw new VeiculoNaoEncontradoException();
+		}
+
+	}
+
+	@Override
+	public Veiculo buscar(String placa) {
+		// TODO Implementar busca de veiculo por placa
+		EntityManager em = EntityManagerUtil.criarEntityManager();
+
+		try{
+			String jpql = "";
+			jpql += "SELECT v FROM Veiculo v";
+			jpql += " WHERE v.placa = :placa";
+
+			return em.createQuery(jpql, Veiculo.class)
+					.setParameter("placa", placa)
+					.getSingleResult();
+		} catch(NoResultException e){
+			return null;
+		}finally {
+			em.close();
+		}
+	}	
+
+	@Override
+	public List<Veiculo> listar() {
+		// TODO: Implementar consulta que lista todos os veiculos ordenados por:
+		// marca;
+		// modelo;
+		// ano;
+		// preco;
+		EntityManager em = EntityManagerUtil.criarEntityManager();
+		try{
+			StringBuilder jpql = new StringBuilder();
+			jpql.append("SELECT v FROM Veiculo v");
+			jpql.append(" ORDER BY v.marca, v.modelo, v.ano, v.preco");
+
+			return em.createQuery(jpql.toString(), Veiculo.class)
+					.getResultList();
+		} finally {
+			em.close();
+		}
+	}
+}
